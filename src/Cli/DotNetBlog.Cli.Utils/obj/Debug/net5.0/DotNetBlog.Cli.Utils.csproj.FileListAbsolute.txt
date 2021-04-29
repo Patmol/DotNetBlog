@@ -1,0 +1,12 @@
+/Users/cedric/repos/DotNetBlog/src/Cli/DotNetBlog.Cli.Utils/bin/Debug/net5.0/DotNetBlog.Cli.Utils.deps.json
+/Users/cedric/repos/DotNetBlog/src/Cli/DotNetBlog.Cli.Utils/bin/Debug/net5.0/DotNetBlog.Cli.Utils.dll
+/Users/cedric/repos/DotNetBlog/src/Cli/DotNetBlog.Cli.Utils/bin/Debug/net5.0/ref/DotNetBlog.Cli.Utils.dll
+/Users/cedric/repos/DotNetBlog/src/Cli/DotNetBlog.Cli.Utils/bin/Debug/net5.0/DotNetBlog.Cli.Utils.pdb
+/Users/cedric/repos/DotNetBlog/src/Cli/DotNetBlog.Cli.Utils/obj/Debug/net5.0/DotNetBlog.Cli.Utils.csprojAssemblyReference.cache
+/Users/cedric/repos/DotNetBlog/src/Cli/DotNetBlog.Cli.Utils/obj/Debug/net5.0/DotNetBlog.Cli.Utils.GeneratedMSBuildEditorConfig.editorconfig
+/Users/cedric/repos/DotNetBlog/src/Cli/DotNetBlog.Cli.Utils/obj/Debug/net5.0/DotNetBlog.Cli.Utils.AssemblyInfoInputs.cache
+/Users/cedric/repos/DotNetBlog/src/Cli/DotNetBlog.Cli.Utils/obj/Debug/net5.0/DotNetBlog.Cli.Utils.AssemblyInfo.cs
+/Users/cedric/repos/DotNetBlog/src/Cli/DotNetBlog.Cli.Utils/obj/Debug/net5.0/DotNetBlog.Cli.Utils.csproj.CoreCompileInputs.cache
+/Users/cedric/repos/DotNetBlog/src/Cli/DotNetBlog.Cli.Utils/obj/Debug/net5.0/DotNetBlog.Cli.Utils.dll
+/Users/cedric/repos/DotNetBlog/src/Cli/DotNetBlog.Cli.Utils/obj/Debug/net5.0/ref/DotNetBlog.Cli.Utils.dll
+/Users/cedric/repos/DotNetBlog/src/Cli/DotNetBlog.Cli.Utils/obj/Debug/net5.0/DotNetBlog.Cli.Utils.pdb
