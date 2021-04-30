@@ -46,6 +46,10 @@
               "target": "Package",
               "version": "[2.1.436, )"
             },
+            "Markdig": {
+              "target": "Package",
+              "version": "[0.24.0, )"
+            },
             "Spectre.Console": {
               "target": "Package",
               "version": "[0.39.0, )"

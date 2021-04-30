@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "wbt/TVO2j5/QAR7Wdc7h/JPl09luBq4/EoQgw9sKTVgBQj5e1optFxcjX3WPudK+po5OEpsu+dPLbkTws9Ze/Q==",
+  "dgSpecHash": "mvfMK2JG6b2VSCcJKuzxYX64LnUFSjnCMjUKKyZSV94RAhTqy/MmN7gt5O1+1f8a6sbqeLTkDJi3FP4AnaZWLg==",
   "success": true,
   "projectFilePath": "/Users/cedric/repos/DotNetBlog/src/Cli/dnb/dnb.csproj",
   "expectedPackageFiles": [
     "/Users/cedric/.nuget/packages/dotliquid/2.1.436/dotliquid.2.1.436.nupkg.sha512",
+    "/Users/cedric/.nuget/packages/markdig/0.24.0/markdig.0.24.0.nupkg.sha512",
     "/Users/cedric/.nuget/packages/microsoft.csharp/4.4.1/microsoft.csharp.4.4.1.nupkg.sha512",
     "/Users/cedric/.nuget/packages/spectre.console/0.39.0/spectre.console.0.39.0.nupkg.sha512",
     "/Users/cedric/.nuget/packages/system.commandline/2.0.0-beta1.21216.1/system.commandline.2.0.0-beta1.21216.1.nupkg.sha512",

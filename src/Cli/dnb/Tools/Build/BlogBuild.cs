@@ -18,6 +18,7 @@ namespace DotNetBlog.Cli.Tools.Build
 
             new Builder(this.path)
                 .LoadConfiguration()
+                .GeneratePosts()
                 .GenerateHtmlFiles();
 
             return 0;

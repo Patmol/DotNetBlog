@@ -35,3 +35,4 @@
 /Users/cedric/repos/DotNetBlog/src/Cli/dnb/bin/Debug/net5.0/YamlDotNet.dll
 /Users/cedric/repos/DotNetBlog/src/Cli/dnb/bin/Debug/net5.0/DotLiquid.dll
 /Users/cedric/repos/DotNetBlog/src/Cli/dnb/bin/Debug/net5.0/it/DotLiquid.resources.dll
+/Users/cedric/repos/DotNetBlog/src/Cli/dnb/bin/Debug/net5.0/Markdig.dll

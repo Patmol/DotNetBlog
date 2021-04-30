@@ -10,6 +10,7 @@
         "dependencies": {
           "DotLiquid": "2.1.436",
           "DotNetBlog.Cli.Utils": "1.0.0",
+          "Markdig": "0.24.0",
           "Spectre.Console": "0.39.0",
           "System.CommandLine": "2.0.0-beta1.21216.1",
           "YamlDotNet": "11.1.1"
@@ -28,6 +29,14 @@
         "resources": {
           "lib/netstandard2.0/it/DotLiquid.resources.dll": {
             "locale": "it"
+          }
+        }
+      },
+      "Markdig/0.24.0": {
+        "runtime": {
+          "lib/netcoreapp3.1/Markdig.dll": {
+            "assemblyVersion": "0.24.0.0",
+            "fileVersion": "0.24.0.0"
           }
         }
       },
@@ -132,6 +141,13 @@
       "sha512": "sha512-sf37qMl5xTX3jsG1AtSK3+2i1AMORyLkpNShcKdCPAwc5yRQSD41fU9RJQH8YDreIE5dQZPI9tzwrO6r6MfshA==",
       "path": "dotliquid/2.1.436",
       "hashPath": "dotliquid.2.1.436.nupkg.sha512"
+    },
+    "Markdig/0.24.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-xvoxO3Ck4mNflc+62d5LCI8xCVmj+SEdpGPptUZmPtbqK88iZkSxtprJWUadHNt8tXY6rFx8oHGpEw1Qcu3lAw==",
+      "path": "markdig/0.24.0",
+      "hashPath": "markdig.0.24.0.nupkg.sha512"
     },
     "Microsoft.CSharp/4.4.1": {
       "type": "package",
