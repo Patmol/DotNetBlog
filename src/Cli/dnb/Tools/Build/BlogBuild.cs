@@ -19,6 +19,8 @@ namespace DotNetBlog.Cli.Tools.Build
             new Builder(this.path)
                 .LoadConfiguration()
                 .GeneratePosts()
+                .GeneratePages()
+                .GenerateTagPages()
                 .GenerateHtmlFiles();
 
             return 0;

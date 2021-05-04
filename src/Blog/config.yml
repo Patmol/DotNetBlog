@@ -1,0 +1,6 @@
+title: "My Blog Title"
+subtitle: "My Blog Subtitle"
+description: "My Description"
+page_details:
+  tags: true                # Generate tag detail pages
+  categories: true          # generate category detail pages

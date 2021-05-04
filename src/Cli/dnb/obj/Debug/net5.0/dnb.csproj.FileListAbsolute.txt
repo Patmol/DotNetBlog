@@ -36,3 +36,6 @@
 /Users/cedric/repos/DotNetBlog/src/Cli/dnb/bin/Debug/net5.0/DotLiquid.dll
 /Users/cedric/repos/DotNetBlog/src/Cli/dnb/bin/Debug/net5.0/it/DotLiquid.resources.dll
 /Users/cedric/repos/DotNetBlog/src/Cli/dnb/bin/Debug/net5.0/Markdig.dll
+/Users/cedric/repos/DotNetBlog/src/Cli/dnb/bin/Debug/net5.0/ColorCode.Core.dll
+/Users/cedric/repos/DotNetBlog/src/Cli/dnb/bin/Debug/net5.0/ColorCode.HTML.dll
+/Users/cedric/repos/DotNetBlog/src/Cli/dnb/bin/Debug/net5.0/Markdig.SyntaxHighlighting.Core.dll

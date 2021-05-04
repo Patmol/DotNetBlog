@@ -10,7 +10,7 @@
             "request": "launch",
             "preLaunchTask": "build",
             "program": "${workspaceFolder}/src/Cli/dnb/bin/Debug/net5.0/dnb.dll",
-            "args": ["build", "--path", "~/repos/DotNetBlog/src/Engine"],
+            "args": ["build", "--path", "~/repos/DotNetBlog/src/Blog"],
             "cwd": "${workspaceFolder}/src/Cli/dnb",
             "console": "internalConsole",
             "stopAtEntry": false
