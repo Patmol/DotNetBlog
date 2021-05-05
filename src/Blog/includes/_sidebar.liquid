@@ -1,0 +1,8 @@
+<div>
+    <img src="{{ configuration.Logo }}" alt="logo">
+    <nav>
+        {% for entry in menuEntries -%}
+        <a href="/{{ entry.Url }}">{{ entry.Text }}</a>
+        {% endfor -%}
+    </nav>
+</div>

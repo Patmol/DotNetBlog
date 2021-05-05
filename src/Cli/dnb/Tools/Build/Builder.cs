@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using dnb.Tools.Build.Model;
 using DotLiquid;
 using DotNetBlog.Cli.Tools.Build.Model;
 using Markdig;
@@ -13,11 +14,13 @@ namespace DotNetBlog.Cli.Tools.Build
     public partial class Builder
     {
         private string path;
-        private Configuration configuration;
         private ICollection<Page> pages;
         private ICollection<Post> posts;
-        private IEnumerable<string> tags => this.posts.SelectMany(post => post.Tags).ToList();
-        private IEnumerable<string> categories => this.posts.SelectMany(post => post.Categories).ToList();
+        private IEnumerable<string> tags => this.posts.SelectMany(post => post.Tags);
+        private IEnumerable<string> categories => this.posts.SelectMany(post => post.Categories);
+        
+        public Configuration Configuration { get; private set; }
+        public ICollection<Menu> Menu { get; private set; }
 
         private MarkdownPipeline pipeline = new MarkdownPipelineBuilder()
                     .UseAdvancedExtensions()
@@ -32,6 +35,8 @@ namespace DotNetBlog.Cli.Tools.Build
         {
             this.path = path;
             this.posts = new List<Post>();
+            this.pages = new List<Page>();
+            this.Menu = new List<Menu>();
         }
     }
 }

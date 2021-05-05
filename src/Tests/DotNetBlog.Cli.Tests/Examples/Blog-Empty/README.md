@@ -1,0 +1,1 @@
+This folder need to be empty for testing purpose.

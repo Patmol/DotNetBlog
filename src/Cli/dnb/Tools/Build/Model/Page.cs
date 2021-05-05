@@ -1,5 +1,8 @@
+using DotLiquid;
+
 namespace DotNetBlog.Cli.Tools.Build.Model
 {
+    [LiquidType("*")]
     public class Page
     {
         /// <summary>

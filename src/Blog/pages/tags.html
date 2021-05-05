@@ -3,7 +3,7 @@ title: 'Tags'
 ---
 
 <div>
-    {% for tag in tags %}
-        <a class="tag" href="#">{{ item.name }}</a>
+    {% for tag in tags -%}
+        <a class="tag" href="#">{{ tag }}</a>
     {% endfor -%}
 </div>

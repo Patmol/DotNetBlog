@@ -4,6 +4,11 @@ namespace DotNetBlog.Cli.Tools.Build
     {
         public Builder GenerateTagPages()
         {
+            if (!this.Configuration.PageDetails.Tags)
+            {
+                return this;
+            }
+
             return this;
         }
     }

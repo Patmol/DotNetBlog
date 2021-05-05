@@ -8,7 +8,7 @@ namespace DotNetBlog.Cli.Tools.Build
     {
         public Builder GeneratePosts()
         {
-            if (this.configuration == null)
+            if (this.Configuration == null)
             {
                 throw new System.NullReferenceException("The configuration must be loaded");
             }
@@ -31,6 +31,16 @@ namespace DotNetBlog.Cli.Tools.Build
 
                     var post = deserializer.Deserialize<Model.Post>(blogContent[1]);
                     post.Content = Markdown.ToHtml(blogContent[2], pipeline);
+
+                    if (string.IsNullOrWhiteSpace(post.Summary))
+                    {
+                        post.Summary = $"{Markdown.ToPlainText(blogContent[2]).Substring(0, 200)}...";
+                    } 
+                    else if (post.Summary.Length > 200)
+                    {
+                        post.Summary = $"{post.Summary.Substring(0, 200)}...";
+                    }
+                    
 
                     this.posts.Add(post);
                 }

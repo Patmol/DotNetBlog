@@ -1,6 +1,9 @@
 title: "My Blog Title"
 subtitle: "My Blog Subtitle"
 description: "My Description"
+
+logo: "/assets/img/logo.png"
+
 page_details:
   tags: true                # Generate tag detail pages
   categories: true          # generate category detail pages

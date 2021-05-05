@@ -1,0 +1,9 @@
+title: "My Test Title"
+subtitle: "My Test Subtitle"
+description: "My Test Description"
+
+logo: "/assets/img/logo.png"
+
+page_details:
+  tags: true                # Generate tag detail pages
+  categories: true          # generate category detail pages

@@ -21,6 +21,7 @@ namespace DotNetBlog.Cli.Tools.Build
                 .GeneratePosts()
                 .GeneratePages()
                 .GenerateTagPages()
+                .GenerateCategoryPages()
                 .GenerateHtmlFiles();
 
             return 0;

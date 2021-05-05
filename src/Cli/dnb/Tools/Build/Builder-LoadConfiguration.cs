@@ -11,10 +11,10 @@ namespace DotNetBlog.Cli.Tools.Build
             using (var stream = new StreamReader($"{this.path}/config.yml"))
             {
                 var deserializer = new DeserializerBuilder()
-                    .WithNamingConvention(UnderscoredNamingConvention.Instance)  
+                    .WithNamingConvention(UnderscoredNamingConvention.Instance)
                     .Build();
 
-                this.configuration = deserializer.Deserialize<Model.Configuration>(stream);
+                this.Configuration = deserializer.Deserialize<Model.Configuration>(stream);
             }
 
             return this;

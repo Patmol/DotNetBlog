@@ -1,0 +1,6 @@
+title: "My Test Title"
+subtitle: "My Test Subtitle"
+description: "My Test Description"
+page_details:
+  tags: false                # Generate tag detail pages
+  categories: true          # generate category detail pages

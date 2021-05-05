@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using System.Linq;
 using DotLiquid;
 
 namespace DotNetBlog.Cli.Tools.Build
@@ -8,10 +9,16 @@ namespace DotNetBlog.Cli.Tools.Build
     {
         public Builder GeneratePages()
         {
-            if (this.configuration == null)
+            if (this.Configuration == null)
             {
                 throw new System.NullReferenceException("The configuration must be loaded");
             }
+
+            // Add the Home page menu entry
+            this.Menu.Add(new () {
+                Text = "Home",
+                Url = "index.html"
+            });
 
             var pageFiles = Directory.GetFiles($"{this.path}/pages");
 
@@ -33,14 +40,17 @@ namespace DotNetBlog.Cli.Tools.Build
                     page.Content = Template
                         .Parse(pageContent[2])
                         .Render(Hash.FromAnonymousObject(new {
-                            tags = this.tags,
-                            categories = this.categories
+                            tags = this.tags.ToList(),
+                            categories = this.categories.ToList()
                         }));
 
                     this.pages.Add(page);
+                    this.Menu.Add(new () {
+                        Text = page.Title,
+                        Url = page.Url
+                    });
                 }
             }
-
 
             return this;
         }
