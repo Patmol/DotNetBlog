@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using dnb.Tools.Common;
 using Markdig;
 
 namespace DotNetBlog.Cli.Tools.Build
@@ -31,6 +32,7 @@ namespace DotNetBlog.Cli.Tools.Build
 
                     var post = deserializer.Deserialize<Model.Post>(blogContent[1]);
                     post.Content = Markdown.ToHtml(blogContent[2], pipeline);
+                    post.ReadingTime = ReadingTime.CalculateReadingTime(Markdown.ToPlainText(blogContent[2]));
 
                     if (string.IsNullOrWhiteSpace(post.Summary))
                     {
@@ -41,7 +43,6 @@ namespace DotNetBlog.Cli.Tools.Build
                         post.Summary = $"{post.Summary.Substring(0, 200)}...";
                     }
                     
-
                     this.posts.Add(post);
                 }
             }

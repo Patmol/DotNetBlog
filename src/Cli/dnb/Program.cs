@@ -10,17 +10,17 @@ namespace DotNetBlog.Cli
     {
         static int Main(string[] args)
         {
-            try {
+            try
+            {
                 var parseResult = Parser.Instance.Parse(args);
 
-                if (parseResult.HasOption(Parser.HelpOption)) {
+                if (parseResult.HasOption(Parser.HelpOption))
+                {
                     HelpCommand.PrintHelp();
                     return 0;
                 }
 
                 int exitCode = 0;
-
-                var tmp = parseResult.RootCommandResult.Children;
 
                 if (BuiltInCommandsCatalog.Commands.TryGetValue(parseResult.GetRootCommand(), out var command))
                 {
@@ -28,7 +28,7 @@ namespace DotNetBlog.Cli
                 }
 
                 return exitCode;
-                }
+            }
             catch (Exception e)
             {
 #if DEBUG
@@ -38,7 +38,7 @@ namespace DotNetBlog.Cli
 
                 AnsiConsole.Markup($"[bold red]{e.Message}[/]");
                 return 1;
-            } 
+            }
         }
     }
 }

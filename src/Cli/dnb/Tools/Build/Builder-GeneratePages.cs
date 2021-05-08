@@ -17,6 +17,7 @@ namespace DotNetBlog.Cli.Tools.Build
             // Add the Home page menu entry
             this.Menu.Add(new () {
                 Text = "Home",
+                Icon = "fa-home",
                 Url = "index.html"
             });
 
@@ -47,7 +48,9 @@ namespace DotNetBlog.Cli.Tools.Build
                     this.pages.Add(page);
                     this.Menu.Add(new () {
                         Text = page.Title,
-                        Url = page.Url
+                        Icon = page.Icon ?? "fa-home",
+                        Url = page.Url,
+                        Order = page.Order
                     });
                 }
             }

@@ -1,9 +1,11 @@
 ---
 title: 'Tags'
+icon: 'fa-tags'
+order: 1
 ---
 
 <div>
     {% for tag in tags -%}
-        <a class="tag" href="#">{{ tag }}</a>
+        <a class="tag" href="/tags/{{ tag }}.html">{{ tag }}</a>
     {% endfor -%}
 </div>

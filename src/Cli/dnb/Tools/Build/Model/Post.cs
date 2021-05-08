@@ -12,6 +12,11 @@ namespace DotNetBlog.Cli.Tools.Build.Model
         /// Gets or sets the publication of the post.
         /// </summary>
         public DateTime Date { get; set; }
+
+        /// <summary>
+        /// Gets or sets the reading time (in minutes).
+        /// </summary>
+        public int ReadingTime { get; set; }
         
         /// <summary>
         /// Gets or sets the list of categories

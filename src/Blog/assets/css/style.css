@@ -1,4 +1,7 @@
+@import url(./editor.css);
 @import url(./sidebar.css);
+@import url(./tags.css);
+@import url(./index.css);
 
 body {
     display: flex;
@@ -23,8 +26,4 @@ h1, h2, h3, h4, h5 {
 
 .content {
     padding: 2rem;
-}
-
-.editor-colors {
-    font-family: 'Source Code Pro', monospace;
 }

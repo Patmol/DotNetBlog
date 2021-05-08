@@ -47,7 +47,8 @@ namespace DotNetBlog.Cli.Tools.Build
                     .Parse(
                         new StreamReader($"{this.path}/layout/index.html").ReadToEnd())
                     .Render(Hash.FromAnonymousObject(new {
-                        posts = this.posts.ToList()
+                        posts = this.posts.ToList(),
+                        trendingTags = this.trendingTags.ToList()
                     }));
 
                 // Write the file into the dist folder.
@@ -77,6 +78,11 @@ namespace DotNetBlog.Cli.Tools.Build
         {
             foreach (var page in this.pages)
             {
+                if (!string.IsNullOrWhiteSpace(page.Folder))
+                {
+                    Directory.CreateDirectory($"{distFolder}/{page.Folder}");
+                }
+
                 using (var fileStream = File.Create($"{distFolder}/{page.Url}"))
                 {
                     var byteArray = Encoding.ASCII.GetBytes(ApplyLayout(page.Content));
@@ -92,7 +98,7 @@ namespace DotNetBlog.Cli.Tools.Build
                         new StreamReader($"{this.path}/layout/layout.html").ReadToEnd())
                     .Render(Hash.FromAnonymousObject(new {
                         configuration = this.Configuration,
-                        menuEntries = this.Menu.ToList(),
+                        menuEntries = this.Menu.OrderBy(menu => menu.Order).ToList(),
                         content = content
                     }));
         }

@@ -2,7 +2,7 @@
 title: "Easily validate a checksum on MacOS"
 date: 2021-04-28 14:00:00 +0200
 categories: [Terminal]
-tags: [tutorial, checksum, terminal]
+tags: [tutorial, checksum, terminal, test3]
 summary: "It's my first post with a summary"
 ---
 

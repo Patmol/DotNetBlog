@@ -2,7 +2,7 @@
     <img src="{{ configuration.Logo }}" alt="logo">
     <nav>
         {% for entry in menuEntries -%}
-        <a href="/{{ entry.Url }}">{{ entry.Text }}</a>
+        <a href="/{{ entry.Url }}"><i class="fas {{ entry.Icon }}"></i> {{ entry.Text }}</a>
         {% endfor -%}
     </nav>
 </div>

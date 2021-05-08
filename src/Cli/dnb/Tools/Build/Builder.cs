@@ -10,13 +10,22 @@ using YamlDotNet.Serialization.NamingConventions;
 
 namespace DotNetBlog.Cli.Tools.Build
 {
-    [LiquidType(nameof(path), nameof(tags), nameof(categories))]
+    [LiquidType(nameof(path), nameof(tags), nameof(trendingTags), nameof(categories))]
     public partial class Builder
     {
         private string path;
         private ICollection<Page> pages;
         private ICollection<Post> posts;
-        private IEnumerable<string> tags => this.posts.SelectMany(post => post.Tags);
+        private IEnumerable<string> tags => this.posts.SelectMany(post => post.Tags).Distinct();
+        private IEnumerable<string> trendingTags => this.tags
+            .Select(tag => new {
+                tag = tag,
+                count = this.posts.SelectMany(post => post.Tags).Count(t => t == tag)
+            })
+            .OrderBy(tag => tag.count)
+            .Take(5)
+            .Select(tag => tag.tag);
+            
         private IEnumerable<string> categories => this.posts.SelectMany(post => post.Categories);
         
         public Configuration Configuration { get; private set; }

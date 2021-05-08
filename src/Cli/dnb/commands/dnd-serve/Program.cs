@@ -19,7 +19,6 @@ namespace DotNetBlog.Cli.Commands.Serve
 
         public override int Execute()
         {
-            Console.WriteLine("inside serve");
             return 0;
         }
     }
