@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using dnb.Tools.Common;
+using DotLiquid;
 using Markdig;
 
 namespace DotNetBlog.Cli.Tools.Build
@@ -19,6 +20,7 @@ namespace DotNetBlog.Cli.Tools.Build
             foreach (var blogFile in blogFiles)
             {
                 using (var stream = new StreamReader(blogFile))
+                using (var postPage = new StreamReader($"{this.path}/layout/post.html"))
                 {
                     var blogFileContent = stream.ReadToEnd();
 
@@ -31,7 +33,13 @@ namespace DotNetBlog.Cli.Tools.Build
                     }
 
                     var post = deserializer.Deserialize<Model.Post>(blogContent[1]);
-                    post.Content = Markdown.ToHtml(blogContent[2], pipeline);
+                    post.Content = Template
+                            .Parse(postPage.ReadToEnd())
+                            .Render(localVariables: Hash.FromAnonymousObject(new
+                            {
+                                post = Markdown.ToHtml(blogContent[2], pipeline),
+                                date = post.Date
+                            }));
                     post.ReadingTime = ReadingTime.CalculateReadingTime(Markdown.ToPlainText(blogContent[2]));
 
                     if (string.IsNullOrWhiteSpace(post.Summary))

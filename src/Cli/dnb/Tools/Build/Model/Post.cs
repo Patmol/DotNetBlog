@@ -21,12 +21,12 @@ namespace DotNetBlog.Cli.Tools.Build.Model
         /// <summary>
         /// Gets or sets the list of categories
         /// </summary>
-        public IEnumerable<string> Categories { get; set; }
+        public IList<string> Categories { get; set; }
 
         /// <summary>
         /// Gets or sets the list of tags
         /// </summary>
-        public IEnumerable<string> Tags { get; set; }
+        public IList<string> Tags { get; set; }
 
         /// <summary>
         /// Gets or sets the summary of the post

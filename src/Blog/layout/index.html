@@ -1,28 +1,20 @@
-<div class="index">
-    <div class="home-post-list">
-        {% for post in posts -%}
-        <article>
-            <h3>
-                <a href="/posts/{{ post.Url }}">{{ post.title }}</a>
-            </h3>
-            <p>
-                {{ post.summary }}
-            </p>
-            <div class="information">
-                <span class="datetime">
-                    <i class="far fa-calendar"></i> {{ post.date | date:"MMMM dd, yyyy" }}
-                </span>
-                <span class="readingtime">
-                    <i class="far fa-clock"></i> {{ post.reading_time }} min
-                </span>
-            </div>
-        </article>
-        {% endfor -%}
-    </div>
-    <div class="right-panel">
-        <h4>Trending Tags</h4>
-        {% for tag in trendingTags -%}
-        <a class="tag" href="/tags/{{ tag }}.html">{{ tag }}</a>
-        {% endfor -%}
-    </div>
+<div class="home-post-list">
+    {% for post in posts -%}
+    <article>
+        <h3>
+            <a href="/posts/{{ post.Url }}">{{ post.title }}</a>
+        </h3>
+        <p>
+            {{ post.summary }}
+        </p>
+        <div class="information">
+            <span class="datetime">
+                <i class="far fa-calendar"></i> {{ post.date | date:"MMMM dd, yyyy" }}
+            </span>
+            <span class="readingtime">
+                <i class="far fa-clock"></i> {{ post.reading_time }} min
+            </span>
+        </div>
+    </article>
+    {% endfor -%}
 </div>

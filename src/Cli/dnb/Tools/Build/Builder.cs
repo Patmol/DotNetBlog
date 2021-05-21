@@ -26,7 +26,13 @@ namespace DotNetBlog.Cli.Tools.Build
             .Take(5)
             .Select(tag => tag.tag);
             
-        private IEnumerable<string> categories => this.posts.SelectMany(post => post.Categories);
+        private IEnumerable<Category> categories => this.posts
+            .SelectMany(post => post.Categories)
+            .Distinct()
+            .Select(category => new Category {
+                Name = category,
+                Count = this.posts.SelectMany(post => post.Categories).Count(c => c == category)
+            });
         
         public Configuration Configuration { get; private set; }
         public ICollection<Menu> Menu { get; private set; }

@@ -47,8 +47,7 @@ namespace DotNetBlog.Cli.Tools.Build
                     .Parse(
                         new StreamReader($"{this.path}/layout/index.html").ReadToEnd())
                     .Render(Hash.FromAnonymousObject(new {
-                        posts = this.posts.ToList(),
-                        trendingTags = this.trendingTags.ToList()
+                        posts = this.posts.ToList()
                     }));
 
                 // Write the file into the dist folder.
@@ -99,6 +98,9 @@ namespace DotNetBlog.Cli.Tools.Build
                     .Render(Hash.FromAnonymousObject(new {
                         configuration = this.Configuration,
                         menuEntries = this.Menu.OrderBy(menu => menu.Order).ToList(),
+                        socialNetworks = this.Configuration.SocialNetworks,
+                        latestPosts = this.posts.OrderByDescending(i => i.Date).Take(5).ToList(),
+                        trendingTags = this.trendingTags.ToList(),
                         content = content
                     }));
         }

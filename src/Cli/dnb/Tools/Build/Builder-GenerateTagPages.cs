@@ -13,17 +13,18 @@ namespace DotNetBlog.Cli.Tools.Build
                 return this;
             }
 
-            using (var tagPage = new StreamReader($"{this.path}/layout/tag.html"))
+            foreach (var tag in this.tags)
             {
-                foreach (var tag in this.tags)
+                using (var tagPage = new StreamReader($"{this.path}/layout/tag.html"))
                 {
                     this.pages.Add(new Model.Page()
                     {
                         Content = Template
                             .Parse(tagPage.ReadToEnd())
-                            .Render(Hash.FromAnonymousObject(new {
+                            .Render(Hash.FromAnonymousObject(new
+                            {
                                 tag = tag,
-                                posts = this.posts.ToList()
+                                posts = this.posts.Where(i => i.Tags.Contains(tag)).ToList()
                             })),
                         Folder = "tags",
                         Title = $"{tag}",

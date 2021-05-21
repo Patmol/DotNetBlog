@@ -5,5 +5,10 @@ order: 2
 ---
 
 <div>
-    Categories
+    <h2 class="mb-200">
+        Categories
+    </h2>
+    {% for category in categories -%}
+        <a class="category" href="/categories/{{ category.Name | downcase }}.html"><i class="fas fa-folder"></i> {{ category.Name }} <span>({{ category.Count }} posts)</span></a> 
+    {% endfor -%}
 </div>

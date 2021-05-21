@@ -5,7 +5,10 @@ order: 1
 ---
 
 <div>
+    <h2 class="mb-200">
+        Tags
+    </h2>
     {% for tag in tags -%}
-        <a class="tag" href="/tags/{{ tag }}.html">{{ tag }}</a>
+        <a class="tag" href="/tags/{{ tag | downcase }}.html">{{ tag }}</a>
     {% endfor -%}
 </div>

@@ -1,0 +1,10 @@
+<div class="right-panel">
+    <h4>Latest Posts</h4>
+    {% for post in latestPosts -%}
+        <a class="post" href="/tags/{{ post.url }}.html">{{ post.title }}</a>
+    {% endfor -%}
+    <h4>Trending Tags</h4>
+    {% for tag in trendingTags -%}
+        <a class="tag" href="/tags/{{ tag }}.html">{{ tag }}</a>
+    {% endfor -%}
+</div>

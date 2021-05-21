@@ -1,7 +1,3 @@
-.index {
-    display: flex;
-}
-
 .home-post-list {
     padding: 2rem 3rem;
 }
@@ -22,7 +18,6 @@
     font-size: 0.875rem;
 }
 
-
 .home-post-list .information {
     color: #B3B3B3;
     font-size: 0.8125rem;
@@ -35,11 +30,4 @@
 
 .home-post-list .information span i {
     margin-right: 0.3rem;
-}
-
-.right-panel .tag {
-    display: inline-block;
-    margin: 0.2rem;
-    padding: 0.2rem 0.5rem;
-    font-size: 0.8125rem;
 }
