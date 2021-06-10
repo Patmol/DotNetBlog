@@ -1,4 +1,13 @@
 <div>
-    {{ date }}
-    {{ post }}
+    <article>
+        <h1>
+            {{ title }}
+        </h1>
+        <div class="information">
+            {% if author != null and author != "" -%}
+            Published by <strong>{{ author }}</strong> on 
+            {% endif -%}<em>{{ date | date:"MMMM dd, yyyy" }}</em>
+        </div>
+        {{ post }}
+    </article>
 </div>

@@ -3,7 +3,9 @@
 @import url(./tags.css);
 @import url(./category.css);
 @import url(./index.css);
+@import url(./archives.css);
 @import url(./right-panel.css);
+@import url(./post.css);
 
 body {
     display: flex;
@@ -11,7 +13,7 @@ body {
     background-color: #1A1A1A;
     color: #E3E3E3;
     margin: 0;
-    font-size: 16px;
+    font-size: 14px;
 }
 
 a {

@@ -5,8 +5,9 @@ description: "My Description"
 logo: "/assets/img/logo.png"
 
 page_details:
-  tags: true                # Generate tag detail pages
-  categories: true          # generate category detail pages
+  tags: true                # generate tag and tags detail pages
+  categories: true          # generate category and categories detail pages
+  archives: true            # generate archives pages
 
 social_networks:
   twitter: "@patmol6"

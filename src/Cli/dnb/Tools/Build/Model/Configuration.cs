@@ -50,6 +50,11 @@ namespace DotNetBlog.Cli.Tools.Build.Model
             /// The categories page.
             /// </summary>
             public bool Categories { get; set; }
+
+            /// <summary>
+            /// The archives page.
+            /// </summary>
+            public bool Archives { get; set; }
         }
 
         [LiquidType("*")]

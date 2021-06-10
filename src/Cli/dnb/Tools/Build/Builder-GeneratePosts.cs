@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using System.Text;
 using dnb.Tools.Common;
 using DotLiquid;
 using Markdig;
@@ -27,9 +28,16 @@ namespace DotNetBlog.Cli.Tools.Build
                     // Search for the meta information on the post.
                     var blogContent = blogFileContent.Split("---");
 
-                    if (blogContent.Length != 3)
+                    if (blogContent.Length < 3)
                     {
                         throw new FormatException($"The post {blogFile} is incorrectly formated");
+                    }
+
+                    var content = new StringBuilder();
+
+                    for (int i = 2; i < blogContent.Length; i++)
+                    {
+                        content.Append(blogContent[i]);
                     }
 
                     var post = deserializer.Deserialize<Model.Post>(blogContent[1]);
@@ -37,8 +45,10 @@ namespace DotNetBlog.Cli.Tools.Build
                             .Parse(postPage.ReadToEnd())
                             .Render(localVariables: Hash.FromAnonymousObject(new
                             {
-                                post = Markdown.ToHtml(blogContent[2], pipeline),
-                                date = post.Date
+                                title = post.Title,
+                                author = post.Author,
+                                date = post.Date,
+                                post = Markdown.ToHtml(content.ToString(), pipeline),
                             }));
                     post.ReadingTime = ReadingTime.CalculateReadingTime(Markdown.ToPlainText(blogContent[2]));
 

@@ -29,6 +29,11 @@ namespace DotNetBlog.Cli.Tools.Build.Model
         }
 
         /// <summary>
+        /// Gets or sets he author of the post.
+        /// </summary>
+        public string Author { get; set; }
+
+        /// <summary>
         /// Gets or sets the folder for this page.
         /// </summary>
         public string Folder { get; set; }

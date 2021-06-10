@@ -1,0 +1,24 @@
+---
+title: 'Archives'
+icon: 'fa-archive'
+order: 4
+---
+
+<div class="archives">
+    <h2 class="mb-200">
+        Archives
+    </h2>
+    <div>
+        {% for archive in archives -%}
+            <h4>
+                {{ archive.year }}
+            </h4>
+            {% for post in archive.posts -%}
+                <a href="/posts/{{ post.url }}" class="archive">
+                    <span>{{ post.title }}</span>
+                    <span>{{ post.date | date:"MMMM dd, yyyy" }}</span>
+                </a>
+            {% endfor %}
+        {% endfor %}
+    </div>
+</div>
