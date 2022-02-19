@@ -1,26 +1,28 @@
-<a href="/">
-    <img src="{{ configuration.Logo }}" alt="logo">
-</a>
-<nav>
-    {% for entry in menuEntries -%}
-    <a href="/{{ entry.Url }}"><i class="fas {{ entry.Icon }}"></i> {{ entry.Text }}</a>
-    {% endfor -%}
-</nav>
-<div class="social-network">
-    {% if socialNetworks.twitter != null and socialNetworks.twitter != "" -%}
-    <a href="https://twitter.com/{{ socialNetworks.twitter  }}" target="_blank"><i
-            class="fab fa-twitter-square"></i></a>
-    {% endif -%}
-    {% if socialNetworks.github != null and socialNetworks.github != "" -%}
-    <a href="https://github.com/{{ socialNetworks.github  }}" target="_blank"><i class="fab fa-github-square"></i></a>
-    {% endif -%}
-    {% if socialNetworks.instagram != null and socialNetworks.instagram != "" -%}
-    <a href="https://instagram.com/{{ socialNetworks.instagram  }}" target="_blank"><i
-            class="fab fa-instagram-square"></i></a>
-    {% endif -%}
-    {% if socialNetworks.email != null and socialNetworks.email != "" -%}
-    <a
-        href=" javascript:location.href = 'mailto:' + ['{{ socialNetworks.email_username }}','{{ socialNetworks.email_domain }}'].join('@')"><i
-            class="fas fa-envelope-square"></i></a>
-    {% endif -%}
+<div>
+    <a href="/">
+        <img src="{{ configuration.Logo }}" alt="logo">
+    </a>
+    <nav>
+        {% for entry in menuEntries -%}
+        <a href="/{{ entry.Url }}"><i class="fas {{ entry.Icon }}"></i> {{ entry.Text }}</a>
+        {% endfor -%}
+    </nav>
+    <div class="social-network">
+        {% if socialNetworks.twitter != null and socialNetworks.twitter != "" -%}
+        <a href="https://twitter.com/{{ socialNetworks.twitter  }}" target="_blank"><i
+                class="fab fa-twitter-square"></i></a>
+        {% endif -%}
+        {% if socialNetworks.github != null and socialNetworks.github != "" -%}
+        <a href="https://github.com/{{ socialNetworks.github  }}" target="_blank"><i class="fab fa-github-square"></i></a>
+        {% endif -%}
+        {% if socialNetworks.instagram != null and socialNetworks.instagram != "" -%}
+        <a href="https://instagram.com/{{ socialNetworks.instagram  }}" target="_blank"><i
+                class="fab fa-instagram-square"></i></a>
+        {% endif -%}
+        {% if socialNetworks.email != null and socialNetworks.email != "" -%}
+        <a
+            href=" javascript:location.href = 'mailto:' + ['{{ socialNetworks.email_username }}','{{ socialNetworks.email_domain }}'].join('@')"><i
+                class="fas fa-envelope-square"></i></a>
+        {% endif -%}
+    </div>
 </div>

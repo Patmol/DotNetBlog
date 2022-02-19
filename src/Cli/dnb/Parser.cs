@@ -31,6 +31,6 @@ namespace DotNetBlog.Cli
 
         public static System.CommandLine.Parsing.Parser Instance { get; } = 
             new CommandLineBuilder(ConfigureCommandLine(rootCommand))
-                .Build();       
+                .Build();
     }
 }

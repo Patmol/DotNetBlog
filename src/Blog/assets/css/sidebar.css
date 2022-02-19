@@ -3,7 +3,7 @@
     min-width: 300px;
     width: 300px;
     background-color: #1E1E1E;
-    position: relative;
+    position: fixed;
 }
 
 .sidebar img {

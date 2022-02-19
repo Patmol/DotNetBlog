@@ -10,9 +10,11 @@ namespace DotNetBlog.Cli.Tools.Build
 {
     public partial class Builder
     {
-        private string distFolder => $"{this.path}/dist";
-        private string postsFolder => $"{this.distFolder}/posts";
-        private string assetsFolder => $"{this.distFolder}/assets";
+        public string DistFolder => this.outputPath is null ? this.defaultDistFolder : this.outputPath;
+
+        public string defaultDistFolder => $"{this.path}/dist";
+        private string postsFolder => $"{this.DistFolder}/posts";
+        private string assetsFolder => $"{this.DistFolder}/assets";
 
         public Builder GenerateHtmlFiles()
         {
@@ -24,12 +26,12 @@ namespace DotNetBlog.Cli.Tools.Build
             Template.FileSystem = new LocalFileSystem($"{this.path}/includes"); 
 
             // Delete the /dist folder and its content
-            if (Directory.Exists(distFolder))
+            if (Directory.Exists(DistFolder))
             {
-                Directory.Delete(distFolder, true);
+                Directory.Delete(DistFolder, true);
             }
             // Create the /dist folder.
-            Directory.CreateDirectory(distFolder);
+            Directory.CreateDirectory(DistFolder);
 
             this.GenerateHtmlIndexPage();
             this.GenerateHtmlPostPages();
@@ -51,7 +53,7 @@ namespace DotNetBlog.Cli.Tools.Build
                     }));
 
                 // Write the file into the dist folder.
-                using (var fileStream = File.Create($"{distFolder}/index.html"))
+                using (var fileStream = File.Create($"{DistFolder}/index.html"))
                 {
                     var byteArray = Encoding.ASCII.GetBytes(ApplyLayout(index));
                     fileStream.Write(byteArray, 0, byteArray.Length);
@@ -65,7 +67,7 @@ namespace DotNetBlog.Cli.Tools.Build
 
             foreach (var post in this.posts)
             {
-                using (var fileStream = File.Create($"{postsFolder}/{post.Url}"))
+                using (var fileStream = File.Create($"{postsFolder}/{post.Filename}"))
                 {
                     var byteArray = Encoding.ASCII.GetBytes(ApplyLayout(post.Content));
                     fileStream.Write(byteArray, 0, byteArray.Length);
@@ -79,10 +81,10 @@ namespace DotNetBlog.Cli.Tools.Build
             {
                 if (!string.IsNullOrWhiteSpace(page.Folder))
                 {
-                    Directory.CreateDirectory($"{distFolder}/{page.Folder}");
+                    Directory.CreateDirectory($"{DistFolder}/{page.Folder}");
                 }
 
-                using (var fileStream = File.Create($"{distFolder}/{page.Url}"))
+                using (var fileStream = File.Create($"{DistFolder}/{page.Filename}"))
                 {
                     var byteArray = Encoding.ASCII.GetBytes(ApplyLayout(page.Content));
                     fileStream.Write(byteArray, 0, byteArray.Length);

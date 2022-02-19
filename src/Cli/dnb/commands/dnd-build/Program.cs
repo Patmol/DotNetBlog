@@ -22,7 +22,9 @@ namespace DotNetBlog.Cli.Commands.Build
 
         public override int Execute()
         {
-            return new BlogBuild(BlogPath.GetBlogPath(ParseResult))
+            return new BlogBuild(
+                BlogPath.GetBlogPath(ParseResult),
+                BlogPath.GetBlogOutputPath(ParseResult))
                 .Execute();
         }
     }

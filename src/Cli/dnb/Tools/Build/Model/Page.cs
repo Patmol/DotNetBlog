@@ -1,3 +1,5 @@
+using System;
+using System.Web;
 using DotLiquid;
 
 namespace DotNetBlog.Cli.Tools.Build.Model
@@ -6,9 +8,39 @@ namespace DotNetBlog.Cli.Tools.Build.Model
     public class Page
     {
         /// <summary>
+        /// Gets the title without space and in lower case.
+        /// </summary>
+        /// <value></value>
+        private string titleEscapeSpace
+        {
+            get
+            {
+                return this.Title.Replace(' ', '-').ToLower();
+            }
+        }
+
+        /// <summary>
         /// Gets or sets the title of the blog post.
         /// </summary>
         public string Title { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Url for the blog post.
+        /// </summary>
+        public string Filename
+        {
+            get
+            {
+                if (string.IsNullOrWhiteSpace(this.Folder))
+                {
+                    return $"{titleEscapeSpace}.html";
+                }
+                else
+                {
+                    return $"{this.Folder}/{titleEscapeSpace}.html";
+                }
+            }
+        }
 
         /// <summary>
         /// Gets or sets the Url for the blog post.
@@ -17,13 +49,15 @@ namespace DotNetBlog.Cli.Tools.Build.Model
         {
             get
             {
+                var title = HttpUtility.UrlEncode(titleEscapeSpace);
+
                 if (string.IsNullOrWhiteSpace(this.Folder))
                 {
-                    return $"{this.Title.Replace(' ', '-').ToLower()}.html";
+                    return $"{title}.html";
                 }
                 else
                 {
-                    return $"{this.Folder}/{this.Title.Replace(' ', '-').ToLower()}.html";
+                    return $"{this.Folder}/{title}.html";
                 }
             }
         }
