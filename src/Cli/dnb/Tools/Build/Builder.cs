@@ -10,10 +10,11 @@ using YamlDotNet.Serialization.NamingConventions;
 
 namespace DotNetBlog.Cli.Tools.Build
 {
-    [LiquidType(nameof(path), nameof(tags), nameof(trendingTags), nameof(categories))]
+    [LiquidType(nameof(path), nameof(outputPath), nameof(tags), nameof(trendingTags), nameof(categories))]
     public partial class Builder
     {
         private string path;
+        private string outputPath;
         private ICollection<Page> pages;
         private ICollection<Post> posts;
         private IEnumerable<string> tags => this.posts.SelectMany(post => post.Tags).Distinct();
@@ -46,9 +47,10 @@ namespace DotNetBlog.Cli.Tools.Build
                     .WithNamingConvention(UnderscoredNamingConvention.Instance)  
                     .Build();
 
-        public Builder(string path)
+        public Builder(string path, string outputPath = null)
         {
             this.path = path;
+            this.outputPath = outputPath;
             this.posts = new List<Post>();
             this.pages = new List<Page>();
             this.Menu = new List<Menu>();

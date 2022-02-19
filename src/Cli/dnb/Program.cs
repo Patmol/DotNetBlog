@@ -14,13 +14,13 @@ namespace DotNetBlog.Cli
             {
                 var parseResult = Parser.Instance.Parse(args);
 
-                if (parseResult.HasOption(Parser.HelpOption))
+                if (parseResult.HasOption(Parser.HelpOption) || args.Length == 0)
                 {
                     HelpCommand.PrintHelp();
                     return 0;
                 }
 
-                int exitCode = 0;
+                int exitCode = -1;
 
                 if (BuiltInCommandsCatalog.Commands.TryGetValue(parseResult.GetRootCommand(), out var command))
                 {

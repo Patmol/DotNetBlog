@@ -1,5 +1,6 @@
 using System;
 using System.CommandLine.Parsing;
+using DotNetBlog.Cli.Tools.Server;
 
 namespace DotNetBlog.Cli.Commands.Serve
 {
@@ -19,7 +20,8 @@ namespace DotNetBlog.Cli.Commands.Serve
 
         public override int Execute()
         {
-            return 0;
+            return new ServeBlog()
+                .Execute();
         }
     }
 }

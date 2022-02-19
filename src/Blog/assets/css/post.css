@@ -1,6 +1,20 @@
+article {
+    line-height: 1.8rem;
+    padding: 0 2rem;
+}
+
 article h1 {
     margin-bottom: 0.5rem;
+    font-size: 2rem;
 }
+
+article h2,
+article h3,
+article h4,
+article h5 {
+    padding-top: 1rem;
+}
+
 
 .information {
     font-size: 0.8rem;

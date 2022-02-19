@@ -5,12 +5,45 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": ".NET Core Launch (console)",
+            "name": "Build DotNetBlog",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/src/Cli/dnb/bin/Debug/net5.0/dnb.dll",
+            "args": ["build"],
+            "cwd": "${workspaceFolder}/src/Cli/dnb",
+            "console": "internalConsole",
+            "stopAtEntry": false
+        },
+        {
+            "name": "Build DotNetBlog (with path)",
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
             "program": "${workspaceFolder}/src/Cli/dnb/bin/Debug/net5.0/dnb.dll",
             "args": ["build", "--path", "~/repos/DotNetBlog/src/Blog"],
+            "cwd": "${workspaceFolder}/src/Cli/dnb",
+            "console": "internalConsole",
+            "stopAtEntry": false
+        },
+        {
+            "name": "Build DotNetBlog (with path and output)",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/src/Cli/dnb/bin/Debug/net5.0/dnb.dll",
+            "args": ["build", "--path", "~/repos/DotNetBlog/src/Blog", "--out", "~/repos/DotNetBlog/dist"],
+            "cwd": "${workspaceFolder}/src/Cli/dnb",
+            "console": "internalConsole",
+            "stopAtEntry": false
+        },
+        {
+            "name": "Serve DotNetBlog",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/src/Cli/dnb/bin/Debug/net5.0/dnb.dll",
+            "args": ["serve"],
             "cwd": "${workspaceFolder}/src/Cli/dnb",
             "console": "internalConsole",
             "stopAtEntry": false

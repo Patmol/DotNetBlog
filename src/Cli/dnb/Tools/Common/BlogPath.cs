@@ -7,6 +7,11 @@ namespace DotNetBlog.Cli.Tools.Common
 {
     public static class BlogPath
     {
+        private static string homePath = (Environment.OSVersion.Platform == PlatformID.Unix || 
+                        Environment.OSVersion.Platform == PlatformID.MacOSX)
+                            ? Environment.GetEnvironmentVariable("HOME")
+                            : Environment.ExpandEnvironmentVariables("%HOMEDRIVE%%HOMEPATH%");
+
         public static string GetBlogPath(ParseResult parseResult)
         {
             string pathDirectory;
@@ -18,11 +23,6 @@ namespace DotNetBlog.Cli.Tools.Common
 
                 if (pathDirectory.StartsWith("~"))
                 {
-                    string homePath = (Environment.OSVersion.Platform == PlatformID.Unix || 
-                        Environment.OSVersion.Platform == PlatformID.MacOSX)
-                            ? Environment.GetEnvironmentVariable("HOME")
-                            : Environment.ExpandEnvironmentVariables("%HOMEDRIVE%%HOMEPATH%");
-
                     pathDirectory = pathDirectory.Replace("~", homePath);
                 }
 
@@ -34,11 +34,30 @@ namespace DotNetBlog.Cli.Tools.Common
             else
             {
                 // Get the exec path
-                string path = System.Reflection.Assembly.GetExecutingAssembly().Location;
-                pathDirectory = System.IO.Path.GetDirectoryName(path);
+                pathDirectory = Directory.GetCurrentDirectory();
             }
 
             return pathDirectory;
+        }
+
+        public static string GetBlogOutputPath(ParseResult parseResult)
+        {
+            if (parseResult.HasOption(BuildCommandParser.OutputPathOption)) 
+            {
+                // Retrieve the path set in the option and check if the path is valid.
+                var pathDirectory = parseResult.ValueForOption<string>(BuildCommandParser.OutputPathOption);
+
+                if (pathDirectory.StartsWith("~"))
+                {
+                    pathDirectory = pathDirectory.Replace("~", homePath);
+                }
+
+                return pathDirectory;
+            }
+            else
+            {
+               return null;
+            }
         }
     }
 }

@@ -13,7 +13,7 @@ body {
     background-color: #1A1A1A;
     color: #E3E3E3;
     margin: 0;
-    font-size: 14px;
+    font-size: 16px;
 }
 
 a {
@@ -26,6 +26,7 @@ a:hover {
 
 h1, h2, h3, h4, h5 {
     font-family: 'Lato', sans-serif;
+    font-weight: 400;
 }
 
 h1 i, h2 i, h3 i, h4 i, h5 i {
@@ -34,6 +35,7 @@ h1 i, h2 i, h3 i, h4 i, h5 i {
 
 .content {
     display: flex;
+    margin-left: 300px;
     width: calc(100% - 300px);
 }
 
